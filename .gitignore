@@ -1,0 +1,21 @@
+# Secrets & Umgebung
+.env
+.env.local
+.env.*.local
+
+# Abhängigkeiten & Build
+node_modules/
+dist/
+build/
+.next/
+coverage/
+
+# Python (falls Backend in Python)
+__pycache__/
+.venv/
+.pytest_cache/
+
+# Editor & OS
+.idea/
+.vscode/
+.DS_Store
