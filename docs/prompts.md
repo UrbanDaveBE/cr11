@@ -2,8 +2,8 @@
 
 Diese Prompts sind Vorlagen. Eckige Klammern `[...]` vor dem Abschicken
 ersetzen. Alle Agenten lesen `PROJEKT.md` + `CLAUDE.md`/`AGENTS.md`
-automatisch — ihr müsst den Projektkontext also nicht wiederholen,
-sondern nur die **konkrete Aufgabe** beschreiben.
+automatisch — der Projektkontext muss also nicht wiederholt werden,
+es geht nur um die **konkrete Aufgabe**.
 
 ---
 

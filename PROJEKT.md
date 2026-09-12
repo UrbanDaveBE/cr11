@@ -46,8 +46,9 @@ Abschnitt 6 existieren und grün sind.
 
 **Grundprinzip:** Mainstream wählen. KI-Agenten produzieren auf weit
 verbreiteten Stacks (viel Trainingsmaterial, stabile APIs) deutlich
-besseren Code als auf Nischen-Technologien. Das ist für euch wichtiger
-als technische Eleganz.
+besseren Code als auf Nischen-Technologien. Für ein Team, das seinen
+Code vollständig von KI-Agenten schreiben lässt, ist das wichtiger als
+technische Eleganz.
 
 | Bereich | Kandidaten | Entscheidung | Begründung |
 |---------|-----------|--------------|------------|
@@ -73,8 +74,8 @@ als technische Eleganz.
 > Ausführliche Beschreibung jeder Schicht: [docs/architektur.md](docs/architektur.md).
 
 **Grundprinzip:** Modularer Monolith zuerst. Keine Microservices —
-die braucht ihr mit 3 Personen nicht, sie verdreifachen nur den
-Betriebsaufwand und erschweren den Agenten den Überblick.
+sie verdreifachen bei einem kleinen Team nur den Betriebsaufwand und
+erschweren den Agenten den Überblick.
 
 **Wichtig:** Das folgende Diagramm beschreibt ausschließlich das **Backend**
 (`apps/api`). Das Frontend (`apps/web`) ist keine dieser Schichten — es
