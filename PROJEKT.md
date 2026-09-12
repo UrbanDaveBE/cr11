@@ -70,6 +70,8 @@ als technische Eleganz.
 
 ## 4. Architektur 🟡
 
+> Ausführliche Beschreibung jeder Schicht: [docs/architektur.md](docs/architektur.md).
+
 **Grundprinzip:** Modularer Monolith zuerst. Keine Microservices —
 die braucht ihr mit 3 Personen nicht, sie verdreifachen nur den
 Betriebsaufwand und erschweren den Agenten den Überblick.
