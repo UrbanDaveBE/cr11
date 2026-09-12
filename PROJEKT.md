@@ -74,20 +74,36 @@ als technische Eleganz.
 die braucht ihr mit 3 Personen nicht, sie verdreifachen nur den
 Betriebsaufwand und erschweren den Agenten den Überblick.
 
-**Schichten (Dependency Rule: Abhängigkeiten zeigen nur nach innen):**
+**Wichtig:** Das folgende Diagramm beschreibt ausschließlich das **Backend**
+(`apps/api`). Das Frontend (`apps/web`) ist keine dieser Schichten — es
+steht außerhalb und kommuniziert per HTTP/JSON mit der API-Schicht:
 
 ```
-API-Schicht (HTTP-Routen, Validierung, Auth)
-      │
-      ▼
-Anwendungsschicht (Use Cases, Orchestrierung)
-      │
-      ▼
-Domain (Geschäftslogik, reine Funktionen, keine Framework-Imports)
-      ▲
-      │
-Persistenz (Repositories, ORM, DB-Zugriff)
+Browser → apps/web (GUI)
+              │  HTTP/JSON
+              ▼
+┌──────────── apps/api (Backend) ────────────────────────────┐
+│ API-Schicht        HTTP-Routen, Validierung, Auth          │
+│                      │                                     │
+│                      ▼                                     │
+│ Anwendungsschicht    Use Cases, Orchestrierung             │
+│                      │                                     │
+│                      ▼                                     │
+│ Domain               Geschäftslogik, reine Funktionen,     │
+│                      keine Framework-Imports               │
+│                      ▲                                     │
+│                      │                                     │
+│ Persistenz           Repositories, ORM, DB-Zugriff         │
+└────────────────────────────────────────────────────────────┘
 ```
+
+Dependency Rule: Abhängigkeiten zeigen nur nach innen (API → Anwendung →
+Domain; Persistenz implementiert Interfaces der Anwendungsschicht).
+
+Begriffsklärung: „Anwendungsschicht" (Fachbegriff aus der Clean
+Architecture) meint **nicht** die Anwendung, die der Nutzer sieht — das
+ist `apps/web`. Sie meint die Schicht im Backend, die einen Use Case
+orchestriert: Eingabe prüfen → Domain-Regeln anwenden → speichern lassen.
 
 - Domain-Code importiert **nichts** aus Framework, DB oder HTTP.
   → Dadurch ist er mit einfachen Unit-Tests testbar.
